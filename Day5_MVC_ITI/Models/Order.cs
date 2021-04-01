@@ -25,6 +25,7 @@ namespace Day5_MVC_ITI.Models
 
         [ForeignKey("Customer")]
         [Range(0, 1000000)]
+        [InverseProperty("ID")]
         public int CustID { get; set; }
 
         public Customer Customer { get; set;}

@@ -1,0 +1,22 @@
+﻿@model Day5_MVC_ITI.Models.Customer
+@{
+    ViewBag.Title = "Search";
+}
+@{
+    Day5_MVC_ITI.Models.Customer C = Model;
+}
+<h2>Search</h2>
+
+<form method="post" action="#">
+    @Html.DropDownList("id", (SelectList)ViewBag.Customers, "Choose Customer")
+    <button value="Submit">Get Orders</button>
+</form>
+@if (IsPost)
+{
+    foreach (Day5_MVC_ITI.Models.Order o in C.Orders)
+    {
+        
+        Html.ActionLink("Order Number " + o.ID.ToString(), "Details", "Orders", new { id = o.ID });
+    }
+}
+
